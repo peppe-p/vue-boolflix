@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Boolflix</title>
+</head>
+
+<body>
+
+    <main id="root">
+        <div>
+            <input v-model="search_content" type="text" id="searchbox">
+            <button id="search">- Cerca -</button>
+        </div>
+
+        <div>
+            <ul>
+                <li v-for="film in list_film">
+                    <h2>{{film.title}}</h2>
+                    <h3>{{film.original_title}}</h3>
+                    <h4>{{film.original_language}}</h4>
+                    <h3>Voto: {{film.vote_average}}</h3>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
