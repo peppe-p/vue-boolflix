@@ -14,6 +14,8 @@ const app = new Vue({
         list_film: "",
         list_tv: "",
         search_content: "",
+        notFoundFilm: false,
+        notFoundTV: false,
     },
 
     methods: {
@@ -30,14 +32,24 @@ const app = new Vue({
             axios
                 .get(urlFIlm)
                 .then(info => {
-                    this.list_film = info.data.results;
+                    if (info.data.results.length == 0) {
+                        this.notFoundFilm = true;
+                    } else {
+                        this.notFoundFilm = false;
+                        this.list_film = info.data.results;
+                    }
                 });
 
             /* Request for TV Series */
             axios
                 .get(urlTV)
                 .then(info => {
-                    this.list_tv = info.data.results;
+                    if (info.data.results.length == 0) {
+                        this.notFoundTV = true;
+                    } else {
+                        this.notFoundTV = false;
+                        this.list_tv = info.data.results;
+                    }
                 })
         });
     }
