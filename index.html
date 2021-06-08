@@ -20,7 +20,11 @@
 
         <div>
             <ul>
-                <li>
+                <li v-for="film in list_film">
+                    <h2>{{film.title}}</h2>
+                    <h3>{{film.original_title}}</h3>
+                    <h4>{{film.original_language}}</h4>
+                    <h3>Voto: {{film.vote_average}}</h3>
                 </li>
             </ul>
         </div>

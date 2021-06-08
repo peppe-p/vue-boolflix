@@ -1,3 +1,13 @@
+/* Milestone 1:
+Creare un layout base con una searchbar(una input e un button) in cui possiamo scrivere completamente o parzialmente il nome di un film.
+Possiamo, cliccando il  bottone, cercare sull’API tutti i film che contengono ciò che ha scritto l’utente.
+Vogliamo dopo la risposta dell’API visualizzare a schermo i seguenti valori per ogni film trovato:
+-Titolo
+-Titolo Originale
+-Lingua
+-Voto
+*/
+
 const app = new Vue({
     el: "#root",
     data: {
@@ -13,11 +23,11 @@ const app = new Vue({
     mounted() {
         const searchBttn = document.getElementById("search");
         searchBttn.addEventListener("click", () => {
-            const url = `https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&query=${this.search_content}`;
+            const url = `https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&query=${this.search_content}&page=1`;
             axios
                 .get(url)
                 .then(info => {
-                    console.log(info.data);
+                    this.list_film = info.data.results;
                 })
         });
     }
