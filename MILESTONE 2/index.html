@@ -25,7 +25,9 @@
                 <li v-for="film in list_film">
                     <h2>{{film.title}}</h2>
                     <h3>{{film.original_title}}</h3>
-                    <h4>{{film.original_language}}</h4>
+                    <img class="flag" :src="'https://www.countryflags.io/' + film.original_language + '/flat/16.png'"
+                        :alt="'' + film.original_language + ''" v-if="film.original_language != ''">
+                    <img class="flag" v-else src="./assets/img/none.png" alt="Bandiera annullata">
                     <h3>Voto: {{film.vote_average}}</h3>
                 </li>
             </ul>
@@ -38,7 +40,9 @@
                 <li v-for="serie in list_tv">
                     <h2>{{serie.name}}</h2>
                     <h3>{{serie.original_name}}</h3>
-                    <h4>{{serie.original_language}}</h4>
+                    <img class="flag" :src="'https://www.countryflags.io/' + serie.origin_country + '/flat/16.png'"
+                        :alt="'' + serie.origin_country + ''" v-if="serie.origin_country != ''">
+                    <img class="flag" v-else src="./assets/img/none.png" alt="Bandiera annullata">
                     <h3>Voto: {{serie.vote_average}}</h3>
                 </li>
             </ul>
