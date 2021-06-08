@@ -13,12 +13,14 @@
 <body>
 
     <main id="root">
-        <div>
+        <div id="searchbar">
             <input v-model="search_content" type="text" id="searchbox">
             <button id="search">- Cerca -</button>
         </div>
 
-        <div>
+        <!-- FILMS -->
+        <div id="films">
+            <h1>Film</h1>
             <ul>
                 <li v-for="film in list_film">
                     <h2>{{film.title}}</h2>
@@ -28,6 +30,21 @@
                 </li>
             </ul>
         </div>
+
+        <!-- SERIE TV -->
+        <div id="tv">
+            <h1>Serie TV</h1>
+            <ul>
+                <li v-for="serie in list_tv">
+                    <h2>{{serie.name}}</h2>
+                    <h3>{{serie.original_name}}</h3>
+                    <h4>{{serie.original_language}}</h4>
+                    <h3>Voto: {{serie.vote_average}}</h3>
+                </li>
+            </ul>
+        </div>
+
+
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
