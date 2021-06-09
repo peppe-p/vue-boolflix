@@ -51,13 +51,18 @@
             <h2 v-show="notFoundTV">Nessuna serie tv trovata contenente {{search_content}}</h2>
             <ul>
                 <li class="card" v-for="serie in list_tv">
-                    <img :src="posterPath + serie.poster_path" alt="" class="poster">
-                    <h2>{{serie.name}}</h2>
-                    <h3>{{serie.original_name}}</h3>
-                    <img class="flag" :src="'https://www.countryflags.io/' + serie.origin_country + '/flat/16.png'"
-                        :alt="'' + serie.origin_country + ''" v-if="serie.origin_country != ''">
-                    <img class="flag" v-else src="./assets/img/none.png" alt="Bandiera annullata">
-                    <h3>Voto: {{serie.vote_average}}</h3>
+                    <div class="card_cover">
+                        <img :src="posterPath + serie.poster_path" alt="" class="poster">
+                    </div>
+
+                    <div class="card_inside">
+                        <h2>{{serie.name}}</h2>
+                        <h3>{{serie.original_name}}</h3>
+                        <img class="flag" :src="'https://www.countryflags.io/' + serie.origin_country + '/flat/16.png'"
+                            :alt="'' + serie.origin_country + ''" v-if="serie.origin_country != ''">
+                        <img class="flag" v-else src="./assets/img/none.png" alt="Bandiera annullata">
+                        <h3>Voto: {{serie.vote_average}}</h3>
+                    </div>
                 </li>
             </ul>
         </div>
