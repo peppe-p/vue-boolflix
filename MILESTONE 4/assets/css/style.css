@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: royalblue;
+}
+
+.header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 40px;
+    background-color: black;
+}
+
+#logo {
+    font-size: 2rem;
+    color: red;
+}
+
+li {
+    margin: 20px 20px;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h1 {
+    color: dodgerblue;
+}
+
+.flag {
+    width: 30px;
+}
+
+.poster {
+    height: 200px;
+}
