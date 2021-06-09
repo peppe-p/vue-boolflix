@@ -27,14 +27,20 @@
             <h1>Film</h1>
             <h2 v-show="notFoundFilm">Nessun film trovato contenente {{search_content}}</h2>
             <ul>
-                <li v-for="film in list_film">
-                    <img :src="posterPath + film.poster_path" alt="" class="poster">
-                    <h2>{{film.title}}</h2>
-                    <h3>{{film.original_title}}</h3>
-                    <img class="flag" :src="'https://www.countryflags.io/' + film.original_language + '/flat/16.png'"
-                        :alt="'' + film.original_language + ''" v-if="film.original_language != ''">
-                    <img class="flag" v-else src="./assets/img/none.png" alt="Bandiera annullata">
-                    <h3>Voto: {{film.vote_average}}</h3>
+                <li class="card" v-for="film in list_film">
+                    <div class="card_cover">
+                        <img :src="posterPath + film.poster_path" alt="" class="poster">
+                    </div>
+
+                    <div class="card_inside">
+                        <h2>{{film.title}}</h2>
+                        <h3>{{film.original_title}}</h3>
+                        <img class="flag"
+                            :src="'https://www.countryflags.io/' + film.original_language + '/flat/16.png'"
+                            :alt="'' + film.original_language + ''" v-if="film.original_language != ''">
+                        <img class="flag" v-else src="./assets/img/none.png" alt="Bandiera annullata">
+                        <h3>Voto: {{film.vote_average}}</h3>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -44,7 +50,7 @@
             <h1>Serie TV</h1>
             <h2 v-show="notFoundTV">Nessuna serie tv trovata contenente {{search_content}}</h2>
             <ul>
-                <li v-for="serie in list_tv">
+                <li class="card" v-for="serie in list_tv">
                     <img :src="posterPath + serie.poster_path" alt="" class="poster">
                     <h2>{{serie.name}}</h2>
                     <h3>{{serie.original_name}}</h3>

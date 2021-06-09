@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: royalblue;
+    background-color: #1c1c1c;
 }
 
 .header {
@@ -22,8 +22,35 @@ body {
     color: red;
 }
 
-li {
+.card {
     margin: 20px 20px;
+    box-shadow: 0px 0px 14px 1px rgba(255,255,255,0.75);
+    background-color: black;
+    color: white;
+    width: 200px;
+    height: 300px;
+    padding: 10px;
+    position: relative;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.card_cover {
+    position: absolute;
+    top: 0; left: 0;
+}
+
+.card_inside {
+}
+
+.card:hover .card_cover {
+    display: none;
+}
+
+.poster {
+    height: 100%;
+    width: 100%;
 }
 
 ul {
@@ -37,8 +64,4 @@ h1 {
 
 .flag {
     width: 30px;
-}
-
-.poster {
-    height: 200px;
 }
