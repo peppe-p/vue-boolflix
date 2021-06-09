@@ -29,7 +29,8 @@
             <ul>
                 <li class="card" v-for="film in list_film">
                     <div class="card_cover">
-                        <img :src="posterPath + film.poster_path" alt="" class="poster">
+                        <img :src="posterPath + film.poster_path" alt="" class="poster" v-if="film.poster_path != null">
+                        <img v-else class="poster" src="./assets/img/cover_none.png" alt="">
                     </div>
 
                     <div class="card_inside">
