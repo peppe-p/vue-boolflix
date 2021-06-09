@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Boolflix</title>
+</head>
+
+<body>
+
+    <main id="root">
+        <div id="searchbar">
+            <input v-model="search_content" type="text" id="searchbox">
+            <button id="search">- Cerca -</button>
+        </div>
+
+        <!-- FILMS -->
+        <div id="films">
+            <h1>Film</h1>
+            <h2 v-show="notFoundFilm">Nessun film trovato contenente {{search_content}}</h2>
+            <ul>
+                <li v-for="film in list_film">
+                    <img :src="posterPath + film.poster_path" alt="" class="poster">
+                    <h2>{{film.title}}</h2>
+                    <h3>{{film.original_title}}</h3>
+                    <img class="flag" :src="'https://www.countryflags.io/' + film.original_language + '/flat/16.png'"
+                        :alt="'' + film.original_language + ''" v-if="film.original_language != ''">
+                    <img class="flag" v-else src="./assets/img/none.png" alt="Bandiera annullata">
+                    <h3>Voto: {{film.vote_average}}</h3>
+                </li>
+            </ul>
+        </div>
+
+        <!-- SERIE TV -->
+        <div id="tv">
+            <h1>Serie TV</h1>
+            <h2 v-show="notFoundTV">Nessuna serie tv trovata contenente {{search_content}}</h2>
+            <ul>
+                <li v-for="serie in list_tv">
+                    <img :src="posterPath + serie.poster_path" alt="" class="poster">
+                    <h2>{{serie.name}}</h2>
+                    <h3>{{serie.original_name}}</h3>
+                    <img class="flag" :src="'https://www.countryflags.io/' + serie.origin_country + '/flat/16.png'"
+                        :alt="'' + serie.origin_country + ''" v-if="serie.origin_country != ''">
+                    <img class="flag" v-else src="./assets/img/none.png" alt="Bandiera annullata">
+                    <h3>Voto: {{serie.vote_average}}</h3>
+                </li>
+            </ul>
+        </div>
+
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
