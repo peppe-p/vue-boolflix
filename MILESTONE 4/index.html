@@ -35,12 +35,17 @@
 
                     <div class="card_inside">
                         <h2>{{film.title}}</h2>
+                        <hr>
                         <h3>{{film.original_title}}</h3>
                         <img class="flag"
                             :src="'https://www.countryflags.io/' + film.original_language + '/flat/16.png'"
                             :alt="'' + film.original_language + ''" v-if="film.original_language != ''">
                         <img class="flag" v-else src="./assets/img/none.png" alt="Bandiera annullata">
-                        <h3>Voto: {{film.vote_average}}</h3>
+                        <h4>Voto: {{film.vote_average}}</h4>
+                        <h4>Overview:</h4>
+                        <div class="overview">
+                            <h5>{{film.overview}}</h5>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -53,16 +58,23 @@
             <ul>
                 <li class="card" v-for="serie in list_tv">
                     <div class="card_cover">
-                        <img :src="posterPath + serie.poster_path" alt="" class="poster">
+                        <img :src="posterPath + serie.poster_path" alt="" class="poster"
+                            v-if="serie.poster_path != null">
+                        <img v-else class="poster" src="./assets/img/cover_none.png" alt="">
                     </div>
 
                     <div class="card_inside">
                         <h2>{{serie.name}}</h2>
+                        <hr>
                         <h3>{{serie.original_name}}</h3>
                         <img class="flag" :src="'https://www.countryflags.io/' + serie.origin_country + '/flat/16.png'"
                             :alt="'' + serie.origin_country + ''" v-if="serie.origin_country != ''">
                         <img class="flag" v-else src="./assets/img/none.png" alt="Bandiera annullata">
                         <h3>Voto: {{serie.vote_average}}</h3>
+                        <h4>Overview:</h4>
+                        <div class="overview">
+                            <h5>{{serie.overview}}</h5>
+                        </div>
                     </div>
                 </li>
             </ul>
