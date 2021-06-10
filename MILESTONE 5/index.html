@@ -34,17 +34,30 @@
                     </div>
 
                     <div class="card_inside">
-                        <h2>{{film.title}}</h2>
-                        <hr>
-                        <h3>{{film.original_title}}</h3>
-                        <img class="flag"
-                            :src="'https://www.countryflags.io/' + film.original_language + '/flat/16.png'"
-                            :alt="'' + film.original_language + ''" v-if="film.original_language != ''">
-                        <img class="flag" v-else src="./assets/img/none.png" alt="Bandiera annullata">
-                        <h4>Voto: {{film.vote_average}}</h4>
-                        <h4>Overview:</h4>
-                        <div class="overview">
-                            <p>{{film.overview}}</p>
+                        <div class="tabPanel">
+                            <button class="tabButton" v-on:click="selectTab(0)">Home</button>
+                            <button class="tabButton" v-on:click="selectTab(1)">Altro</button>
+                        </div>
+                        <div class="tab_1" :class="selectedTab == 0 ? 'showed' : 'none' ">
+                            <h2>{{film.title}}</h2>
+                            <hr>
+                            <h3>{{film.original_title}}</h3>
+                            <img class="flag"
+                                :src="'https://www.countryflags.io/' + film.original_language + '/flat/16.png'"
+                                :alt="'' + film.original_language + ''" v-if="film.original_language != ''">
+                            <img class="flag" v-else src="./assets/img/none.png" alt="Bandiera annullata">
+                            <h4>Voto: {{film.vote_average}}</h4>
+                            <h4>Overview:</h4>
+                            <div class="overview">
+                                <p>{{film.overview}}</p>
+                            </div>
+                        </div>
+
+                        <div class="tab_2" :class="selectedTab == 1 ? 'showed' : 'none' ">
+                            <h3>Attori</h3>
+                            <h4>{{film.attori}}</h4>
+                            <h3>Genere</h3>
+                            <h4>{{film.genere}}</h4>
                         </div>
                     </div>
                 </li>
