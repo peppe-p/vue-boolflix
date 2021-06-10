@@ -55,7 +55,11 @@
 
                         <div class="tab_2" :class="selectedTab == 1 ? 'showed' : 'none' ">
                             <h3>Attori</h3>
-                            <h4>{{film.attori}}</h4>
+                            <div class="actors" v-for="cast in list_act_film" v-if="film.id == cast.id">
+                                <h4 v-for="actor in cast.cast">
+                                    {{actor.name}}
+                                </h4>
+                            </div>
                             <h3>Genere</h3>
                             <h4>{{film.genere}}</h4>
                         </div>
